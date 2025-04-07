@@ -3,10 +3,10 @@ package io.reflectoring.buckpal.account.application.port.in;
 import io.reflectoring.buckpal.account.domain.Account.AccountId;
 import io.reflectoring.buckpal.account.domain.Money;
 import io.reflectoring.buckpal.common.SelfValidating;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-import javax.validation.constraints.NotNull;
 
 @Value
 @EqualsAndHashCode(callSuper = false)

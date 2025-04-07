@@ -8,9 +8,10 @@ import io.reflectoring.buckpal.account.application.port.out.UpdateAccountStatePo
 import io.reflectoring.buckpal.common.UseCase;
 import io.reflectoring.buckpal.account.domain.Account;
 import io.reflectoring.buckpal.account.domain.Account.AccountId;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
-import javax.transaction.Transactional;
+
 import java.time.LocalDateTime;
 
 @RequiredArgsConstructor

@@ -1,15 +1,23 @@
-package io.reflectoring.buckpal.common;
+package io.reflectoring.buckpal.common; 
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Set;
 
+/**
+ * SelfValidating 을 상속받아서 사용하는 클래스는
+ * 해당 클래스가 만들어질 때 Validation 을 수행한다.
+ * @param <T>
+ */
+@Slf4j
 public abstract class SelfValidating<T> {
 
-  private Validator validator;
+  private final Validator validator;
 
   public SelfValidating() {
     ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -23,6 +31,7 @@ public abstract class SelfValidating<T> {
   protected void validateSelf() {
     Set<ConstraintViolation<T>> violations = validator.validate((T) this);
     if (!violations.isEmpty()) {
+      log.error("Validation error occurred: {}", violations);
       throw new ConstraintViolationException(violations);
     }
   }

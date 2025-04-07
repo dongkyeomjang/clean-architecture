@@ -1,6 +1,5 @@
 package io.reflectoring.buckpal.account.adapter.out.persistence;
 
-import javax.persistence.EntityNotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +10,7 @@ import io.reflectoring.buckpal.account.domain.Account;
 import io.reflectoring.buckpal.account.domain.Account.AccountId;
 import io.reflectoring.buckpal.account.domain.Activity;
 import io.reflectoring.buckpal.common.PersistenceAdapter;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
